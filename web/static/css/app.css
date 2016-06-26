@@ -59,6 +59,8 @@ body {
   font-family: monospace;
   border: 0;
   line-height: 20px;
+  white-space: nowrap;
+  resize: none;
 
   background-size: 80px 80px;
   background-image:
