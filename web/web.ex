@@ -18,21 +18,13 @@ defmodule Tryexpug.Web do
 
   def model do
     quote do
-      use Ecto.Schema
-
-      import Ecto
-      import Ecto.Changeset
-      import Ecto.Query
+      # Define common model functionality
     end
   end
 
   def controller do
     quote do
       use Phoenix.Controller
-
-      alias Tryexpug.Repo
-      import Ecto
-      import Ecto.Query
 
       import Tryexpug.Router.Helpers
       import Tryexpug.Gettext
@@ -64,10 +56,6 @@ defmodule Tryexpug.Web do
   def channel do
     quote do
       use Phoenix.Channel
-
-      alias Tryexpug.Repo
-      import Ecto
-      import Ecto.Query
       import Tryexpug.Gettext
     end
   end

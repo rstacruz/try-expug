@@ -1,21 +1,48 @@
-// Brunch automatically concatenates all files in your
-// watched paths. Those paths can be configured at
-// config.paths.watched in "brunch-config.js".
-//
-// However, those files will only be executed if
-// explicitly imported. The only exception are files
-// in vendor, which are never wrapped in imports and
-// therefore are always executed.
-
-// Import dependencies
-//
-// If you no longer want to use a dependency, remember
-// to also remove its path from "config.paths.watched".
 import "phoenix_html"
 
-// Import local files
-//
-// Local files can be imported directly using relative
-// paths "./socket" or full ones "web/static/js/socket".
+$(document).on('input', '[role~="input"]', function () {
+  var $this = $(this)
+  var $out = $('[role~="output"]')
+  var $err = $('[role~="error"]')
+  var val = $this.val()
 
-// import socket from "./socket"
+  compile(val).then(function (res) {
+    $err.html('')
+    if (res.output) {
+      $out.val(res.output)
+    } else if (res.error) {
+      $err.html(res.error)
+    }
+  })
+  .catch(function (err) {
+    $err.html('<strong>Error:</strong> <span>' + err.message + '</span>')
+  })
+})
+
+$(function () {
+  $('[role~="input"]').trigger('input')
+})
+
+function compile (source) {
+  var options = {
+    method: 'post',
+    body: JSON.stringify({ input: source }),
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  }
+
+  return window.fetch('/try/compile', options)
+  .then(checkStatus)
+  .then(function (res) { return res.json() })
+}
+
+function checkStatus (res) {
+  if (res.status >= 200 && res.status < 300) {
+    return res
+  }
+
+  var err = new Error(res.statusText)
+  err.response = res
+  throw err
+}

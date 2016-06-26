@@ -20,11 +20,6 @@ defmodule Tryexpug.ChannelCase do
       # Import conveniences for testing with channels
       use Phoenix.ChannelTest
 
-      alias Tryexpug.Repo
-      import Ecto
-      import Ecto.Changeset
-      import Ecto.Query
-
 
       # The default endpoint for testing
       @endpoint Tryexpug.Endpoint
@@ -32,11 +27,6 @@ defmodule Tryexpug.ChannelCase do
   end
 
   setup tags do
-    :ok = Ecto.Adapters.SQL.Sandbox.checkout(Tryexpug.Repo)
-
-    unless tags[:async] do
-      Ecto.Adapters.SQL.Sandbox.mode(Tryexpug.Repo, {:shared, self()})
-    end
 
     :ok
   end

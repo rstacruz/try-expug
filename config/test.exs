@@ -8,12 +8,3 @@ config :tryexpug, Tryexpug.Endpoint,
 
 # Print only warnings and errors during test
 config :logger, level: :warn
-
-# Configure your database
-config :tryexpug, Tryexpug.Repo,
-  adapter: Ecto.Adapters.Postgres,
-  username: "postgres",
-  password: "postgres",
-  database: "tryexpug_test",
-  hostname: "localhost",
-  pool: Ecto.Adapters.SQL.Sandbox

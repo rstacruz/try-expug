@@ -1,1 +1,90 @@
 /* This file is for your main application css. */
+
+html, body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+}
+
+body {
+  background: #fcfcfd;
+}
+
+.expug-nav {
+  height: 56px;
+  line-height: 56px;
+  background: white;
+  box-shadow: 0 3px 8px rgba(0, 50, 100, 0.03);
+  margin-bottom: 24px;
+
+  &:after {
+    display: table;
+    content: '';
+    clear: both;
+    zoom: 1;
+  }
+
+  & > * > a {
+    display: inline-block;
+    margin-right: 16px;
+  }
+
+  & > * > .brand {
+    font-weight: bold;
+    color: #111;
+  }
+}
+
+.try-expug {
+  width: auto;
+  margin: 0 16px;
+  display: flex;
+}
+
+.try-expug > .field {
+  flex: 1 1 50%;
+  margin: 0 16px;
+}
+
+.try-expug > .info {
+  flex: 0 0 200px;
+  margin: 0 16px;
+}
+
+.input-box {
+  background: transparent;
+  width: 100%;
+  box-sizing: border-box;
+  height: 400px;
+  padding: 0;
+  font-family: monospace;
+  border: 0;
+
+  &:focus {
+    outline: 0;
+  }
+}
+
+.info-box {
+  & > h1 {
+    margin: 0;
+    padding: 0;
+    font-size: 2em;
+    font-weight: 300;
+  }
+
+  & > p {
+    margin-top: 16px;
+  }
+}
+
+.field-heading {
+  font-size: 1em;
+  height: 24px;
+  border-bottom: solid 1px #ddd;
+  margin-bottom: 16px;
+}
+
+
+.error-box {
+  margin-bottom: 16px;
+  color: #d33;
+}

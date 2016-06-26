@@ -1,0 +1,18 @@
+.try-expug
+  .field.-in
+    h3.field-heading Input
+    textarea.input-box.-in(role="input")= "doctype html\nhtml\n  head\n    title Hello\n  body\n    .hello#box"
+  .field.-out
+    h3.field-heading Output
+    .error-box(role="error")
+    textarea.input-box.-out(role="output")
+  .info
+    .info-box
+      h1 Expug
+      p Expug is an HTML templating engine for Elixir/Phoenix.
+      h4 Links
+      .list-group
+        a.list-group-item(href="https://github.com/rstacruz/expug")
+          | Expug
+        a.list-group-item(href="https://github.com/rstacruz/phoenix_expug")
+          | PhoenixExpug

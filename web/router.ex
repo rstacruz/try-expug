@@ -14,13 +14,12 @@ defmodule Tryexpug.Router do
   end
 
   scope "/", Tryexpug do
-    pipe_through :browser # Use the default browser stack
-
-    get "/", PageController, :index
+    pipe_through :browser
+    get "/", TryController, :index
   end
 
-  # Other scopes may use custom stacks.
-  # scope "/api", Tryexpug do
-  #   pipe_through :api
-  # end
+  scope "/", Tryexpug do
+    pipe_through :api
+    post "/try/compile", TryController, :compile
+  end
 end

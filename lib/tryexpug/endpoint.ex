@@ -36,7 +36,7 @@ defmodule Tryexpug.Endpoint do
   plug Plug.Session,
     store: :cookie,
     key: "_tryexpug_key",
-    signing_salt: "1QelOljc"
+    signing_salt: "WBKCZukQ"
 
   plug Tryexpug.Router
 end
