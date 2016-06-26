@@ -42,6 +42,7 @@ body {
 .try-expug > .field {
   flex: 1 1 50%;
   margin: 0 16px;
+  position: relative;
 }
 
 .try-expug > .info {
@@ -57,6 +58,19 @@ body {
   padding: 0;
   font-family: monospace;
   border: 0;
+  line-height: 20px;
+
+  background-size: 80px 80px;
+  background-image:
+    linear-gradient(to bottom,
+    rgba(0, 0, 0, 0.04),
+    rgba(0, 0, 0, 0.04) 25%,
+    rgba(0, 0, 0, 0.00) 25%,
+    rgba(0, 0, 0, 0.00) 50%,
+    rgba(0, 0, 0, 0.015) 50%,
+    rgba(0, 0, 0, 0.015) 75%,
+    rgba(0, 0, 0, 0.00) 75%,
+    rgba(0, 0, 0, 0.00));
 
   &:focus {
     outline: 0;
@@ -85,6 +99,21 @@ body {
 
 
 .error-box {
+  position: absolute;
+  left: 0;
+  top: 56px;
+  z-index: 10;
   margin-bottom: 16px;
   color: #d33;
+  padding: 16px;
+  display: none;
+
+  &.-show {
+    display: block;
+    background: rgba(255, 255, 255, .9);
+  }
+
+  &.-show + .input-box {
+    opacity: .1;
+  }
 }

@@ -12,7 +12,7 @@ defmodule Tryexpug.TryController do
       |> json(%{ "output": output })
     rescue err in [Expug.Error] ->
       conn
-      |> json(%{ "error": inspect(err) })
+      |> json(%{ "error": err })
     end
   end
 end

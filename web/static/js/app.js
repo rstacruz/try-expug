@@ -7,17 +7,29 @@ $(document).on('input', '[role~="input"]', function () {
   var val = $this.val()
 
   compile(val).then(function (res) {
-    $err.html('')
+    $err.html('').removeClass('-show')
     if (res.output) {
       $out.val(res.output)
     } else if (res.error) {
-      $err.html(res.error)
+      $err.addClass('-show').html(errify(res.error))
     }
   })
   .catch(function (err) {
-    $err.html('<strong>Error:</strong> <span>' + err.message + '</span>')
+    $err
+      .addClass('-show')
+      .html('<strong>Error:</strong> <span>' + err.message + '</span>')
   })
 })
+
+function errify (err) {
+  if (err.message && err.line && err.column) {
+    return "" +
+      `<strong>Line ${err.line} column ${err.column}:</strong><br>` +
+      "<span>" + err.message + "</span>"
+  } else {
+    return JSON.stringify(err, null, 2) + "?"
+  }
+}
 
 $(function () {
   $('[role~="input"]').trigger('input')
