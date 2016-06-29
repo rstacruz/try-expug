@@ -1,12 +1,18 @@
 defmodule Tryexpug.TryController do
   use Tryexpug.Web, :controller
 
-  def index(conn, _params) do
-    render conn, "index.html"
+  @default_code "doctype html\nhtml\n  head\n    title Hello\n  body\n    .hello#box"
+
+  def index(conn, params) do
+    conn
+    |> assign(:code, params["code"] || @default_code)
+    |> render("index.html")
   end
 
-  def frame(conn, _params) do
+  def frame(conn, params) do
+    IO.puts("-> params: #{inspect(params)}")
     conn
+    |> assign(:code, params["code"] || @default_code)
     |> render("frame.html")
   end
 
