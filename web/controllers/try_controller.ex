@@ -5,6 +5,11 @@ defmodule Tryexpug.TryController do
     render conn, "index.html"
   end
 
+  def frame(conn, _params) do
+    conn
+    |> render("frame.html")
+  end
+
   def compile(conn, %{"input" => input}) do
     try do
       output = Expug.to_eex!(input)

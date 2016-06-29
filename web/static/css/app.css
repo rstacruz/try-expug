@@ -5,7 +5,7 @@ html, body {
 }
 
 body {
-  background: #fcfcfd;
+  background: transparent;
 }
 
 .expug-nav {
@@ -37,6 +37,22 @@ body {
   width: auto;
   margin: 0 16px;
   display: flex;
+}
+
+.try-expug.-frame {
+  margin: 0;
+
+  & > .field {
+    margin: 0;
+  }
+
+  & > .field:first-child {
+    margin-right: 16px;
+  }
+
+  & > .field > .input-box {
+    height: calc(100vh - 68px);
+  }
 }
 
 .try-expug > .field {
