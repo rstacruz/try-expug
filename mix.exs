@@ -30,13 +30,14 @@ defmodule Tryexpug.Mixfile do
   #
   # Type `mix help deps` for examples and options.
   defp deps do
-    [{:phoenix, "~> 1.2.0-rc"},
+    [
+     {:phoenix, "~> 1.2.0-rc"},
      {:phoenix_pubsub, "~> 1.0.0-rc"},
      {:phoenix_html, "~> 2.5"},
      {:phoenix_live_reload, "~> 1.0", only: :dev},
      {:gettext, "~> 0.11"},
      {:cowboy, "~> 1.0"},
-     {:expug, git: "https://github.com/rstacruz/expug.git"},
-     {:phoenix_expug, git: "https://github.com/rstacruz/phoenix_expug.git"}]
+     {:phoenix_expug, ">= 0.0.1"},
+    ]
   end
 end
